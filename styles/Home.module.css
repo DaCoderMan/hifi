@@ -1,0 +1,41 @@
+/* styles/Home.module.css */
+.container {
+    min-height: 100vh;
+    padding: 0 0.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../public/YonatanPerlin.webp');
+    background-size: cover;
+    background-position: center;
+    color: green;
+    text-align: center;
+    ;
+  }
+  
+  .main {
+    padding: 5rem 0;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .title {
+    margin: 0;
+    font-size: 6rem;
+    background-color: black;
+  }
+  
+  .prices {
+    margin-top: 2rem;
+    font-size: 4rem;
+    background-color: black;
+  }
+  
+  .error {
+    color: red;
+  }
+  
