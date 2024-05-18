@@ -8,15 +8,24 @@ const useCryptoPrices = () => {
   const [lastFetch, setLastFetch] = useState(0);
   const intervalRef = useRef(null);
 
+  const formatPrice = (price) => {
+    return new Intl.NumberFormat( {
+      style: 'currency',
+      currency: 'USD',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }).format(price);
+  };
+
   const fetchPrices = async () => {
     try {
       const response = await axios.get(
         'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin,ethereum,solana&vs_currencies=usd'
       );
       const newPrices = {
-        BTC: response.data.bitcoin.usd,
-        ETH: response.data.ethereum.usd,
-        SOL: response.data.solana.usd,
+        BTC: formatPrice(response.data.bitcoin.usd),
+        ETH: formatPrice(response.data.ethereum.usd),
+        SOL: formatPrice(response.data.solana.usd),
       };
       setPrices(newPrices);
       const now = Date.now();
